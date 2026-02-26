@@ -5,7 +5,6 @@ public class DosenDemo02 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
         System.out.print("Masukkan jumlah dosen: ");
         int jumlah = Integer.parseInt(sc.nextLine());
 
@@ -21,26 +20,23 @@ public class DosenDemo02 {
             System.out.print("Jenis Kelamin : ");
             String jk = sc.nextLine();
             Boolean jenisKelamin = jk.equalsIgnoreCase("Pria");
-
             System.out.print("Usia          : ");
             int usia = Integer.parseInt(sc.nextLine());
-
             arrayOfDosen02[i] = new Dosen02(kode, nama, jenisKelamin, usia);
-
             System.out.println("--------------------------------------");
         }
 
-        int no = 1;
-        for (Dosen02 dosen : arrayOfDosen02) {
-
-            System.out.println("\nData Dosen ke-" + no++);
-            System.out.println("Kode          : " + dosen.kode);
-            System.out.println("Nama          : " + dosen.nama);
-            System.out.println("Jenis Kelamin : " + (dosen.jenisKelamin ? "Pria" : "Wanita"));
-            System.out.println("Usia          : " + dosen.usia);
-            System.out.println("--------------------------------------");
-        }
-
+        DataDosen02 data = new DataDosen02();
+        System.out.println("\n=== SEMUA DATA DOSEN ===");
+        data.dataSemuaDosen(arrayOfDosen02);
+        System.out.println("=== JUMLAH DOSEN PER JENIS KELAMIN ===");
+        data.jumlahDosenPerJenisKelamin(arrayOfDosen02);
+        System.out.println("=== RATA-RATA USIA DOSEN ===");
+        data.rerataUsiaDosenPerJenisKelamin(arrayOfDosen02);
+        System.out.println("=== DOSEN PALING TUA ===");
+        data.infoDosenPalingTua(arrayOfDosen02);
+        System.out.println("=== DOSEN PALING MUDA ===");
+        data.infoDosenPalingMuda(arrayOfDosen02);
         sc.close();
     }
 }
